@@ -5,7 +5,7 @@
             <h2>Lesson {{lesson_number}}</h2>
 
             <h3 id="lesson_title">{{lesson_title}}</h3>
-            {{format-markdown lesson_body}}
+            {{showdown-addon lesson_body}}
             {{#link-to 'lessons.edit' this class='button tiny'}}Edit lesson{{/link-to}}
         </div>
     </div>
