@@ -1,0 +1,20 @@
+<div>
+    <div class="row">
+        <div class="large-11 columns">
+            <div id="code-area"></div>
+            <div class="button small" id="run_code" {{action 'compileCode'}}>Run code</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="large-11 columns">
+            <div class="output-panel">
+                <h4>Result</h4>
+                <ul class="unstyled-list">
+                {{#each result in endResult}}
+                    <li>&gt; {{result}}</li>
+                {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

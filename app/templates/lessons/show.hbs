@@ -1,0 +1,15 @@
+<h1>Let's Learn Ruby!</h1>
+<div class="row">
+    <div class="large-4 columns">
+        <div class="panel">
+            <h2>Lesson {{lesson_number}}</h2>
+
+            <h3 id="lesson_title">{{lesson_title}}</h3>
+            {{format-markdown lesson_body}}
+            {{#link-to 'lessons.edit' this class='button tiny'}}Edit lesson{{/link-to}}
+        </div>
+    </div>
+    <div class="large-8 columns">
+        {{code-area lesson_code=lesson_code endResult=endResult}}
+    </div>
+</div>
