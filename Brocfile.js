@@ -9,6 +9,7 @@ var app = new EmberApp();
 //
 app.import("vendor/opal/opal.min.js");
 app.import("vendor/opal/opal-parser.min.js");
+app.import("vendor/codemirror/codemirror.min.js");
 //app.import("vendor/opal/opal-parser.js");
 // If you need to use different assets in different
 // environments, specify an object as the first parameter. That
