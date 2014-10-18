@@ -151,7 +151,7 @@
         def.$log_error = function (err) {
             var self = this;
 
-            return self.$print_to_output("" + (err) + "\n" + (err.stack));
+            return self.output = [("" + (err) + "\n" + (err.stack))];
         };
     })(self, null);
 })(Opal);
