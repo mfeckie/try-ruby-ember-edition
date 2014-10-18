@@ -3,7 +3,8 @@
         "document",
         "window",
         "-Promise",
-        "Opal"
+        "Opal",
+        "CodeMirror"
     ],
     "browser": true,
     "boss": true,
