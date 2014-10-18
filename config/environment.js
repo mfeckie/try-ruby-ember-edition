@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'webfront',
+    modulePrefix: 'try-ruby-ember-edition',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
