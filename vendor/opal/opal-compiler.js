@@ -151,7 +151,7 @@
         def.$log_error = function (err) {
             var self = this;
 
-            return self.output = [("" + (err) + "\n" + (err.stack))];
+            return self.output = [("" + (err) + "\n" + (err.stack))]; //TODO - Maybe a separate area for errors?
         };
     })(self, null);
 })(Opal);

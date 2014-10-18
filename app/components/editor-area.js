@@ -8,6 +8,7 @@ export default Ember.Component.extend({
     actions: {
     },
     onInit: function () {
+        var self = this;
         var lesson_area = this.$('.editor_body')[0];
         var codeArea = new CodeMirror(lesson_area, {
             lineNumbers: true,
@@ -16,6 +17,11 @@ export default Ember.Component.extend({
             tabSize: 2,
             lineWrapping: true,
             value: this.get('editor_text') || ''
+        });
+        codeArea.on("change", function (editor) {
+            Ember.run(function () {
+                self.set("code", editor.getValue());
+            });
         });
         this.set('codeArea', codeArea);
     }.on('didInsertElement'),
