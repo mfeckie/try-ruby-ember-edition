@@ -7,9 +7,9 @@ var app = new EmberApp({
     'foundationJs': true
   },
   codemirror: {
-  modes: ['markdown', 'ruby'],
-  themes: ['lesser-dark']
-}
+    modes: ['markdown', 'ruby'],
+    themes: ['lesser-dark']
+  }
 });
 
 // Use `app.import` to add additional libraries to the generated
