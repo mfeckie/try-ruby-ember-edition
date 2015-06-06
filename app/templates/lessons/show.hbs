@@ -10,6 +10,13 @@
         </div>
     </div>
     <div class="large-8 columns">
-        {{ivy-codemirror value=model.lessonCode theme="lesser-dark" mode="ruby" }}
+        <div class="row">
+          {{ivy-codemirror value=model.lessonCode theme="lesser-dark" mode="ruby" }}
+        </div>
+        <div class="row">
+          <p>
+            {{code-evaluator code=model.lessonCode}}
+          </p>
+        </div>
     </div>
 </div>

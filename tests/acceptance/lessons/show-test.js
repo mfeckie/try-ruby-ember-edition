@@ -22,6 +22,8 @@ test('Visiting an individual lesson', function (assert) {
         elementHasText(assert, '.panel', 'Working with Strings');
         elementHasText(assert, '.panel', 'Strings in Ruby are');
         click('#run_code');
-        elementHasText(assert, '.output-panel', '> Hello Friend!');
+        andThen(function () {
+          elementHasText(assert, '.output-panel', '> Hello Friend!');
+        });
     });
 });
