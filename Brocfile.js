@@ -3,9 +3,13 @@
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 var app = new EmberApp({
-    'foundation-sass': {
-        'foundationJs': 'all'
-    }
+  'ember-cli-foundation-sass': {
+    'foundationJs': true
+  },
+  codemirror: {
+  modes: ['markdown', 'ruby'],
+  themes: ['lesser-dark']
+}
 });
 
 // Use `app.import` to add additional libraries to the generated
@@ -14,7 +18,7 @@ var app = new EmberApp({
 app.import("vendor/opal/opal.min.js");
 app.import("vendor/opal/opal-parser.min.js");
 app.import("vendor/opal/opal-compiler.js");
-app.import("vendor/codemirror/codemirror.min.js");
+// app.import("vendor/codemirror/codemirror.min.js");
 //app.import("vendor/opal/opal-parser.js");
 // If you need to use different assets in different
 // environments, specify an object as the first parameter. That

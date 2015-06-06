@@ -24,7 +24,6 @@
 
      def initialize()
          @output = []
-         @compiled_lines = []
      end
 
      def run_code(input_code)

@@ -1,21 +1,24 @@
 import Ember from 'ember';
-import startApp from '../helpers/start-app';
+import { module, test } from 'qunit';
+import startApp from 'try-ruby-ember-edition/tests/helpers/start-app';
 
-var App;
+var application;
 
-module('Acceptance: About', {
-  setup: function() {
-    App = startApp();
+module('Acceptance | About', {
+  beforeEach: function() {
+    application = startApp();
   },
-  teardown: function() {
-    Ember.run(App, 'destroy');
+
+  afterEach: function() {
+    Ember.run(application, 'destroy');
   }
 });
 
-test('Navigating to about', function () {
+test('Navigating to about', function (assert) {
     visit('/');
     click('a:contains("About")');
     andThen(function () {
-        elementHasText('h1', "What's this Ruby all about?");
+      var text = find('h1:contains("What\'s this Ruby all about?")').text();
+      assert.equal(text, "What's this Ruby all about?");
     });
 });

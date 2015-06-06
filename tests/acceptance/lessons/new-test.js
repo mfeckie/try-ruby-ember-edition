@@ -1,21 +1,23 @@
 import Ember from 'ember';
-import startApp from '../../helpers/start-app';
+import { module, test } from 'qunit';
+import startApp from 'try-ruby-ember-edition/tests/helpers/start-app';
 
-var App;
+var application;
 
-module('Acceptance: LessonsNew', {
-  setup: function() {
-    App = startApp();
+module('Acceptance | Lessons', {
+  beforeEach: function() {
+    application = startApp();
   },
-  teardown: function() {
-    Ember.run(App, 'destroy');
+
+  afterEach: function() {
+    Ember.run(application, 'destroy');
   }
 });
 
-test('New lesson view', function () {
+test('New lesson view', function (assert) {
     visit('/lessons/new');
     andThen(function () {
-        ensureElementPresent('input#lesson_number');
-        ensureElementPresent('input#lesson_title');
+        ensureElementPresent(assert, 'input#lesson_number');
+        ensureElementPresent(assert, 'input#lesson_title');
     });
 });

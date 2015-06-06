@@ -1,22 +1,23 @@
 import Ember from 'ember';
-import startApp from '../helpers/start-app';
+import { module, test } from 'qunit';
+import startApp from 'try-ruby-ember-edition/tests/helpers/start-app';
 
-var App;
+var application;
 
-module('Acceptance: Index', {
-  setup: function() {
-    App = startApp();
+module('Acceptance | About', {
+  beforeEach: function() {
+    application = startApp();
   },
-  teardown: function() {
-    Ember.run(App, 'destroy');
+
+  afterEach: function() {
+    Ember.run(application, 'destroy');
   }
 });
 
-test('Home page text', function () {
+test('Home page text', function (assert) {
     visit('/');
     andThen(function () {
-        elementHasText('h1', "Welcome Nubies!");
         var menu = $('.side-nav li').length;
-        equal(menu, 2, "Expected 2 items, got: "+ menu);
+        assert.equal(menu, 2, "Expected 2 items, got: "+ menu);
     });
 });

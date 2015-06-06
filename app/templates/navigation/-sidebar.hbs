@@ -1,0 +1,6 @@
+<ul class="side-nav">
+    {{#each model as |lesson| }}
+        <li>{{#link-to 'lessons.show' lesson}}Lesson {{lesson.lesson_number}}{{/link-to}}
+        </li>
+    {{/each}}
+</ul>

@@ -3,13 +3,10 @@ import {
   test
 } from 'ember-qunit';
 
-moduleFor('controller:lessons/new', 'LessonsNewController', {
-  // Specify the other units that are required for this test.
-  // needs: ['controller:foo']
-});
+moduleFor('controller:lessons/new', 'LessonsNewController');
 
 // Replace this with your real tests.
-test('it exists', function() {
+test('it exists', function(assert) {
   var controller = this.subject();
-  ok(controller);
+  assert.ok(controller);
 });

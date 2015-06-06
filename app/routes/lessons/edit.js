@@ -8,8 +8,11 @@ export default Ember.Route.extend({
         saveLesson: function () {
             var self = this;
             var m = this.get('currentModel');
-            m.set('lesson_body', window.lessonBody.getValue());
-            m.set('lesson_code', window.lessonCode.getValue());
+            // m.set('lesson_body', window.lessonBody.getValue());
+            // m.set('lesson_code', window.lessonCode.getValue());
+
+            console.log(m);
+
             var onSuccess = function () {
                 self.transitionTo('lessons.show', m.id);
             };

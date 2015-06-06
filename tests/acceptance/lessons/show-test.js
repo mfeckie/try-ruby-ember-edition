@@ -1,25 +1,27 @@
 import Ember from 'ember';
-import startApp from '../../helpers/start-app';
+import { module, test } from 'qunit';
+import startApp from 'try-ruby-ember-edition/tests/helpers/start-app';
 
-var App;
+var application;
 
-module('Acceptance: Lessons.Show', {
-  setup: function() {
-    App = startApp();
+module('Acceptance | About', {
+  beforeEach: function() {
+    application = startApp();
   },
-  teardown: function() {
-    Ember.run(App, 'destroy');
+
+  afterEach: function() {
+    Ember.run(application, 'destroy');
   }
 });
 
-test('Visiting an individual lesson', function () {
+test('Visiting an individual lesson', function (assert) {
     visit('/lessons/1');
     andThen(function () {
-        elementDoesNotHaveText('.output-panel', '>Hello Friend!');
-        elementHasText('.panel', 'Lesson 1');
-        elementHasText('.panel', 'Working with Strings');
-        elementHasText('.panel', 'Strings in Ruby are');
+        elementDoesNotHaveText(assert, '.output-panel', '>Hello Friend!');
+        elementHasText(assert, '.panel', 'Lesson 1');
+        elementHasText(assert, '.panel', 'Working with Strings');
+        elementHasText(assert, '.panel', 'Strings in Ruby are');
         click('#run_code');
-        elementHasText('.output-panel', '> Hello Friend!');
+        elementHasText(assert, '.output-panel', '> Hello Friend!');
     });
 });

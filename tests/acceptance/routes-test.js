@@ -1,55 +1,57 @@
 import Ember from 'ember';
-import startApp from '../helpers/start-app';
+import { module, test } from 'qunit';
+import startApp from 'try-ruby-ember-edition/tests/helpers/start-app';
 
-var App;
+var application;
 
-module('Acceptance: Routes', {
-  setup: function() {
-    App = startApp();
+module('Acceptance | About', {
+  beforeEach: function() {
+    application = startApp();
   },
-  teardown: function() {
-    Ember.run(App, 'destroy');
+
+  afterEach: function() {
+    Ember.run(application, 'destroy');
   }
 });
 
-test('Root route', function () {
+test('Root route', function (assert) {
     visit('/');
     andThen(function () {
-        equal(currentPath(), 'index');
+        assert.equal(currentPath(), 'index');
     });
 });
 
-test('About page route', function () {
+test('About page route', function (assert) {
     visit('/about');
     andThen(function () {
-        equal(currentPath(), 'about');
+        assert.equal(currentPath(), 'about');
     });
 });
 
-test('Lessons index route', function () {
+test('Lessons index route', function (assert) {
     visit('/lessons');
     andThen(function () {
-        equal(currentPath(), 'lessons.index');
+        assert.equal(currentPath(), 'lessons.index');
     });
 });
 
-test('Lessons Show route', function () {
+test('Lessons Show route', function (assert) {
     visit('/lessons/1');
     andThen(function () {
-        equal(currentPath(), 'lessons.show');
+        assert.equal(currentPath(), 'lessons.show');
     });
 });
 
-test('Lessons new route', function () {
+test('Lessons new route', function (assert) {
     visit('/lessons/new');
     andThen(function () {
-        equal(currentPath(), 'lessons.new');
+        assert.equal(currentPath(), 'lessons.new');
     });
 });
 
-test('Lessons index route', function () {
+test('Lessons index route', function (assert) {
     visit('/lessons/1/edit');
     andThen(function () {
-        equal(currentPath(), 'lessons.edit');
+        assert.equal(currentPath(), 'lessons.edit');
     });
 });

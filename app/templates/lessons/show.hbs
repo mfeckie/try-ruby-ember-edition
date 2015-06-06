@@ -5,11 +5,12 @@
             <h2>Lesson {{lesson_number}}</h2>
 
             <h3 id="lesson_title">{{lesson_title}}</h3>
-            {{showdown-addon lesson_body}}
-            {{#link-to 'lessons.edit' this class='button tiny'}}Edit lesson{{/link-to}}
+            {{markdown-to-html markdown=lesson_body}}
+            {{#link-to 'lessons.edit' this.model class='button tiny'}}Edit lesson{{/link-to}}
         </div>
     </div>
     <div class="large-8 columns">
-        {{code-area lesson_code=lesson_code endResult=endResult}}
+        {{!-- {{code-area lesson_code=lesson_code endResult=endResult}} --}}
+        {{ivy-codemirror value=less_code}}
     </div>
 </div>

@@ -3,13 +3,13 @@
 <div class="row">
     <div class="large-12 columns">
         <ul class="small-block-grid-3">
-            {{#each model}}
+            {{#each model as |lesson|}}
                 <li>
                     <div class="lessons action" {{action 'goToLesson' this}}>
                         <div class="panel">
-                            <h4>Lesson {{lesson_number}}</h4>
+                            <h4>Lesson {{lesson.lesson_number}}</h4>
 
-                            <p>{{lesson_title}}</p>
+                            <p>{{lesson.lesson_title}}</p>
                         </div>
                     </div>
                 </li>

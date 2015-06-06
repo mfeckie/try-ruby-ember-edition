@@ -1,25 +1,27 @@
 import Ember from 'ember';
-import startApp from '../../helpers/start-app';
+import { module, test } from 'qunit';
+import startApp from 'try-ruby-ember-edition/tests/helpers/start-app';
 
-var App;
+var application;
 
-module('Acceptance: LessonIndex', {
-  setup: function() {
-    App = startApp();
+module('Acceptance | About', {
+  beforeEach: function() {
+    application = startApp();
   },
-  teardown: function() {
-    Ember.run(App, 'destroy');
+
+  afterEach: function() {
+    Ember.run(application, 'destroy');
   }
 });
 
-test('Shows multiple index items in grid', function () {
+test('Shows multiple index items in grid', function (assert) {
     visit('/lessons');
     andThen(function () {
         var lessons = find(".lessons").length;
-        equal(lessons, 2, "Expected to find 2 lessons, got: " + lessons);
+        assert.equal(lessons, 2, "Expected to find 2 lessons, got: " + lessons);
         click('.lessons:first');
         andThen(function () {
-            currentRoute('lessons.show');
+            currentRouteName('lessons.show');
         });
     });
 });
