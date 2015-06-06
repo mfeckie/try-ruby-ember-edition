@@ -5,11 +5,11 @@
         <ul class="small-block-grid-3">
             {{#each model as |lesson|}}
                 <li>
-                    <div class="lessons action" {{action 'goToLesson' this}}>
+                    <div class="lessons action" {{action 'goToLesson' lesson}}>
                         <div class="panel">
-                            <h4>Lesson {{lesson.lesson_number}}</h4>
+                            <h4>Lesson {{lesson.lessonNumber}}</h4>
 
-                            <p>{{lesson.lesson_title}}</p>
+                            <p>{{lesson.lessonTitle}}</p>
                         </div>
                     </div>
                 </li>

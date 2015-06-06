@@ -1,34 +1,63 @@
+var lessons = [
+    {
+        id: 1,
+        lessonNumber: 1,
+        lessonTitle: 'Working with Strings',
+        lessonBody: '*Strings in Ruby are*',
+        lessonCode: 'puts "Hello Friend!"'
+
+    },
+    {
+        id: 2,
+        lessonNumber: 2,
+        lessonTitle: 'Working with numbers',
+        lessonBody: '*Numbers in Ruby are*',
+        lessonCode: 'puts 1 + 1'
+    }
+]
+
+var counter = 2;
+
+function genericLesson () {
+  counter += 1;
+  return {
+    id: counter,
+    lessonNumber: counter,
+    lessonTitle: `Generic Lesson ${counter}`,
+    lessonBody: `Generic Body Content ${counter}`,
+    lessonCode: `class Number${counter}\nend`
+  };
+}
+
 module.exports = function (app) {
-    var counter = 2;
     var express = require('express');
     var lessonsRouter = express.Router();
     lessonsRouter.get('/', function (req, res) {
-        res.send({"lessons": [
-            {
-                id: 1,
-                lesson_number: 1,
-                lesson_title: 'Working with Strings',
-                lesson_body: '*Strings in Ruby are*',
-                lesson_code: 'puts "Hello Friend!"'
-
-            },
-            {
-                id: 2,
-                lesson_number: 2,
-                lesson_title: 'Working with numbers',
-                lesson_body: '*Numbers in Ruby are*',
-                lesson_code: 'puts 1 + 1'
-            }
-        ]});
+        res.send({"lessons": lessons});
+    });
+    lessonsRouter.get('/:id', function (req, res) {
+      var lesson = lessons[req.params.id - 1] || genericLesson();
+      res.send({lessons: lesson})
     });
     lessonsRouter.post('/', function (req, res) {
         var lesson = req.body.lesson;
         res.send({"lessons": {
             id: counter += 1,
-            lesson_number: lesson.lesson_number,
-            lesson_title: lesson.lesson_body,
-            lesson_code: lesson.lesson_code
+            lessonNumber: lesson.lessonNumber,
+            lessonTitle: lesson.lessonTitle,
+            lessonBody: lesson.lessonBody,
+            lessonCode: lesson.lessonCode
         }})
+    });
+    lessonsRouter.put('/:id', function (req, res) {
+        var lesson = req.body.lesson;
+        res.send({lesson: {
+          id: req.params.id,
+          lessonNumber: lesson.lessonNumber,
+          lessonTitle: lesson.lessonTitle,
+          lessonBody: lesson.lessonBody,
+          lessonCode: lesson.lessonCode
+        }});
     });
     app.use('/api/lessons', lessonsRouter);
 };

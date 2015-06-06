@@ -5,13 +5,13 @@
                 <label for="lesson_number" class="left inline">Lesson Number:</label>
             </div>
             <div class="large-2 columns">
-                {{input type='text' value=lesson_number id='lesson_number'}}
+                {{input type='text' value=model.lessonNumber id='lesson_number'}}
             </div>
             <div class="large-2 columns">
                 <label for="lesson_title" class="right inline">Lesson Title:</label>
             </div>
             <div class="large-6 columns">
-                {{input type='text' value=lesson_title id='lesson_title'}}
+                {{input type='text' value=model.lessonTitle id='lesson_title'}}
             </div>
         </div>
     </div>
@@ -20,12 +20,11 @@
     <div class="large-8 columns">
         <div class="row">
             <h2>Lesson Text</h2>
-            {{!-- {{editor-area editor_text=lesson_body language="markdown" code=markdown_code}} --}}
-            {{ivy-codemirror value=lesson_body language="markdown" theme="lesser-dark" lineNumbers=true tabSize=2}}
+            {{ivy-codemirror value=model.lessonBody mode="markdown" }}
         </div>
         <div class="row">
             <h2>Lesson Code Sample</h2>
-            {{editor-area editor_text=lesson_code language="ruby" code=ruby_code}}
+            {{ivy-codemirror value=model.lessonCode mode="ruby" }}
         </div>
     </div>
 </div>
