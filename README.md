@@ -1,3 +1,5 @@
+[ ![Codeship Status for mfeckie/try-ruby-ember-edition](https://codeship.com/projects/f7b5a730-b722-0132-3ee2-16eebaf9774f/status?branch=master)](https://codeship.com/projects/71230)
+
 #TryRuby - Try Ruby Ember Edition
 
 ##Why?
@@ -68,4 +70,3 @@ Specify what it takes to deploy your app.
 * Development Browser Extensions
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
-
