@@ -17,7 +17,7 @@ module('Acceptance | About', {
 test('Visiting an individual lesson', function (assert) {
     visit('/lessons/1');
     andThen(function () {
-        elementDoesNotHaveText(assert, '.output-panel', '>Hello Friend!');
+        elementDoesNotHaveText(assert, '.output-panel', '> Hello Friend!');
         elementHasText(assert, '.panel', 'Lesson 1');
         elementHasText(assert, '.panel', 'Working with Strings');
         elementHasText(assert, '.panel', 'Strings in Ruby are');
