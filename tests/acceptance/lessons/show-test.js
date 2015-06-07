@@ -15,15 +15,20 @@ module('Acceptance | About', {
 });
 
 test('Visiting an individual lesson', function (assert) {
+    server.create('lesson', {
+      lessonNumber: 1,
+      lessonTitle: 'Strings in Ruby',
+      lessonBody: 'This is the lesson body',
+      lessonCode: 'puts "Hello World from a test!"'
+    });
     visit('/lessons/1');
     andThen(function () {
         elementDoesNotHaveText(assert, '.output-panel', '> Hello Friend!');
-        elementHasText(assert, '.panel', 'Lesson 1');
-        elementHasText(assert, '.panel', 'Working with Strings');
-        elementHasText(assert, '.panel', 'Strings in Ruby are');
+        elementHasText(assert, '.panel', 'Strings in Ruby');
+        elementHasText(assert, '.panel', 'This is the lesson body');
         click('#run_code');
         andThen(function () {
-          elementHasText(assert, '.output-panel', '> Hello Friend!');
+          elementHasText(assert, '.output-panel', 'Hello World from a test!');
         });
     });
 });

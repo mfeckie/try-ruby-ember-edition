@@ -15,6 +15,7 @@ module('Acceptance | About', {
 });
 
 test('Home page text', function (assert) {
+    server.createList('lesson', 2);
     visit('/');
     andThen(function () {
         var menu = $('.side-nav li').length;

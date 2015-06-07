@@ -2,8 +2,6 @@
 <div class="row">
     <div class="large-4 columns">
         <div class="panel">
-            <h2>Lesson {{model.lessonNumber}}</h2>
-
             <h3 id="lesson_title">{{model.lessonTitle}}</h3>
             {{markdown-to-html markdown=model.lessonBody}}
             {{#link-to 'lessons.edit' model class='button tiny'}}Edit lesson{{/link-to}}
@@ -11,12 +9,14 @@
     </div>
     <div class="large-8 columns">
         <div class="row">
-          {{ivy-codemirror value=model.lessonCode theme="lesser-dark" mode="ruby" }}
+          <div class="large-12 columns">
+            {{ivy-codemirror value=model.lessonCode theme="lesser-dark" mode="ruby" }}
+          </div>
         </div>
         <div class="row">
-          <p>
+          <div class="large-12 columns">
             {{code-evaluator code=model.lessonCode}}
-          </p>
+          </div>
         </div>
     </div>
 </div>

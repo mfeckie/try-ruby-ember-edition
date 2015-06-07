@@ -7,6 +7,7 @@ var application;
 module('Acceptance | About', {
   beforeEach: function() {
     application = startApp();
+    server.create('lesson');
   },
 
   afterEach: function() {

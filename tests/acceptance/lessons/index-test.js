@@ -15,6 +15,7 @@ module('Acceptance | About', {
 });
 
 test('Shows multiple index items in grid', function (assert) {
+    server.createList('lesson',2);
     visit('/lessons');
     andThen(function () {
         var lessons = find(".lessons").length;
